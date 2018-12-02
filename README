@@ -1,0 +1,30 @@
+twl fileName translateLang translatedLang [options]
+
+e.g. twl english-word-list english spanish
+
+
+Following language name styles are allowed
+    English
+    english
+    en
+
+Supported langauges
+    translate languages
+        Japanese
+        English
+    
+    translated languages
+        English:
+            Russian
+            Spanish
+            Esperanto
+
+        japanese:
+            English
+options 
+    -r delete original fileName
+
+
+notes
+    単語が見つからなかったときの処理
+    単語が間違っていたときは、どうするか
