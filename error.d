@@ -1,4 +1,3 @@
-
 import std.stdio;
 
 class ErrorHandlerClass

@@ -1,7 +1,4 @@
-// import "word-list-generator.di";
-
-
-import "translation-class.di";
+import translator;
 
 int main(string[] args)
 {

@@ -1,4 +1,4 @@
-import "error-handler.di";
+import error;
 
 class TranslationClass : ErrorHandlerClass
 {
