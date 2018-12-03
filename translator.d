@@ -3,28 +3,36 @@ import error;
 class TranslationClass : ErrorHandlerClass
 {
 public:
+    this(string[] lang)
+    {
+        _lang=lang;
+    }
 
     //This function translates a word
-    //lang[0] translateLang lang[1] translatedLang   word: translatedWord 
-    int TranslateWord(string[] lang,string word,char[] translatedWord)
-    {
-        char[] html;    
-
-        //Get a dictionary page
-        ErrorHandler(GetDictionaryHtml(lang,word,html)); 
-
+    void TranslateWord()
+    {                   
         //Code to process <li> (word meaning part of dictionary)
-        return 0;
+        ErrorHandler(GetTranslation());
+    }
+
+    //setter
+    void word(string word)
+    {
+        _word=word;
+    }
+
+    //getter
+    char[] word()
+    {
+        return _word;
     }
 
 private:
-    
+
     //This function gets a html file of a dictionary site
-    //lang[0] translateLang lang[1] translatedLang   word: translatedWord html:HTML of Dictionary Site
-    //returned value 1: translateLang is incorrect 2 TranslatedLanguage is incorrect
-    int GetDictionaryHtml(string[] lang,string word,char[] html)
+    int GetDictionaryHtml()
     {
-        switch(lang[0])
+        switch(_lang[0])
         {
             import std.net.curl;
             import std.array;
@@ -35,20 +43,20 @@ private:
             case "en":
                 {
                     //Translated Lang
-                    switch(lang[1])
+                    switch(_lang[1])
                     {
                         case "Spanish":
                         case "spanish":
                         case "es":
                             //Spanish language
-                            html=get("https://en.bab.la/dictionary/english-spanish/"~word);
+                            _html=get("https://en.bab.la/dictionary/english-spanish/"~_word);
                             break;
 
                         case "Esperanto":
                         case "esperanto":
                             
                             //Esperanto language
-                            html=get("https://en.bab.la/dictionary/english-esperanto/"~word);
+                            _html=get("https://en.bab.la/dictionary/english-esperanto/"~_word);
                             break;
 
                         case "Russian":
@@ -56,7 +64,7 @@ private:
                         case "ru":
 
                             //Russian language
-                            html=get("https://en.bab.la/dictionary/english-russian/"~word);
+                            _html=get("https://en.bab.la/dictionary/english-russian/"~_word);
                             break;
 
                         default:
@@ -68,8 +76,8 @@ private:
                     break;
                 }
 
-            //Japanese -> Translated Lang's Dictionary HTML
             case "Japanese":
+            //Japanese -> Translated Lang's Dictionary HTML
             case "japanese":
             case "jp":
                 {
@@ -80,4 +88,37 @@ private:
                 return 1;
         }        
     }
+    
+    //From the html get the translation part 
+    int GetTranslation()
+    {
+        switch(_lang[0])
+        {
+            //Not from japanese
+            default:
+                
+                //Get a dictionary page
+                ErrorHandler(GetDictionaryHtml()); 
+
+                //Get <li></li>
+
+                break;
+
+            case "Japanese":
+            case "japanese":
+            case "jp":
+                
+                break;
+            
+        }
+        return 0;
+    }
+private:
+    //0.Translate language 2.TranslatedLanguage
+    string[] _lang;
+    //translate / translated word
+    string _word;
+
+    //dictionary html
+    char[] _html;
 }
