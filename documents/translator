@@ -1,0 +1,18 @@
+Public functions
+    TranslationClass::word(void)
+        This is the getter and returns of the result of translation.
+    
+    TranslationClass::word(string)
+        This is the setter and this sets the word that is translated.
+
+    TranslationClass::TranslateWord()
+        You need to call this function to translate a word;
+
+
+Private functions
+    TranslationClass::GetDictionaryHtml()
+        This function gets a HTML of a dictionary website.
+
+    TranslationClass::GetTranslation()
+        This function process the HTML GetDictionaryHtml() got. And this gets just the part of word translation.
+

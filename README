@@ -23,9 +23,3 @@ Supported langauges
             English
 options 
     -r delete original fileName
-
-
-notes
-    単語が見つからなかったときの処理
-    単語が間違っていたときは、どうするか
-    read read read問題
