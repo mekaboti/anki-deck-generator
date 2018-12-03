@@ -1,10 +1,9 @@
+import std.process;
 import std.stdio;
 
 class ErrorHandlerClass
 {
-public:
-    import std.process;
-
+protected:
     void ErrorHandler(int errorCode)
     {
         switch(errorCode)

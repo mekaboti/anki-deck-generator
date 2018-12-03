@@ -11,7 +11,6 @@ public:
     //This function translates a word
     void TranslateWord()
     {                   
-        //Code to process <li> (word meaning part of dictionary)
         ErrorHandler(GetTranslation());
     }
 
@@ -22,7 +21,7 @@ public:
     }
 
     //getter
-    char[] word()
+    string word()
     {
         return _word;
     }
@@ -89,7 +88,7 @@ private:
         }        
     }
     
-    //From the html get the translation part 
+    //From the html get the translation and rewite _word with it
     int GetTranslation()
     {
         switch(_lang[0])
@@ -100,7 +99,9 @@ private:
                 //Get a dictionary page
                 ErrorHandler(GetDictionaryHtml()); 
 
-                //Get <li></li>
+                //Get <li></li> part
+
+                //Get translation
 
                 break;
 
