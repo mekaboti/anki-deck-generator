@@ -1,6 +1,6 @@
 Public functions
     TranslationClass::word(void)
-        This is the getter and returns of the result of translation.
+        This is the getter and returns the result of translation.
     
     TranslationClass::word(string)
         This is the setter and this sets the word that is translated.

@@ -1,5 +1,8 @@
 import error;
 
+import std.conv;
+import std.stdio;
+
 class TranslationClass : ErrorHandlerClass
 {
 public:
@@ -97,13 +100,14 @@ private:
             default:
                 
                 //Get a dictionary page
-                ErrorHandler(GetDictionaryHtml()); 
-
+                ErrorHandler(GetDictionaryHtml());
                 //Get <li></li> part
+                string str = text(_html);
+                str.writeln;
 
                 //Get translation
-
                 break;
+
 
             case "Japanese":
             case "japanese":
